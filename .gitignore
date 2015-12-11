@@ -103,4 +103,22 @@ public class TournamentTable extends JFrame {
     }
 }
 
+import javax.swing.*;
+
+/**
+ * Created by Юра on 09.12.2015.
+ */
+public class Main {
+    public static void main(String[] args) {
+        TournamentTable s = new TournamentTable("Турнірна таблиця");
+        s.createTable();
+        s.setVisible(true);
+        s.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        s.setSize(500, 550);
+
+        s.setLocationRelativeTo(null);
+    }
+}
+
+
 
