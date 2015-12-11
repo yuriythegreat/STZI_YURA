@@ -1,0 +1,106 @@
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.List;
+
+import javax.swing.*;
+
+public class TournamentTable extends JFrame {
+    private JTextField textField;
+    JButton searchTeam;
+    JButton addTeam;
+    JButton deleteTeam;
+    JTextField searchField, addField, deleteField;
+    JLabel searchLabel;
+    eHandler handler = new eHandler();
+
+    public TournamentTable(String s) {
+        super(s);
+        setLayout(new FlowLayout());
+        searchTeam = new JButton("Пошук команд");
+        addTeam = new JButton("Додати команду");
+        deleteTeam = new JButton("Видалити Команду");
+        searchField = new JTextField(12);
+        addField = new JTextField(12);
+        deleteField = new JTextField(12);
+        searchLabel = new JLabel("FAAAAAAAAAAa");
+        add(searchTeam);
+        add(addTeam);
+        add(deleteTeam);
+        add(searchField);
+        add(addField);
+        add(deleteField);
+        searchTeam.getActionCommand();
+
+        searchTeam.addActionListener(handler);
+    }
+    public void createTable(){
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        getContentPane().add(scrollPane);
+        setPreferredSize(new Dimension(450, 200));
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+        add(searchLabel);
+    }
+    public void addTeam(String place,String team,String games,String wins,String losts,String goals, String scores){
+        data = new String[][]{
+                {place,team,games,wins,losts,goals,scores}
+        };
+    }
+    private String[] columnNames = {
+            "Place",
+            "Teams",
+            "Games",
+            "Wins",
+            "Losts",
+            "Goals",
+            "Scores"
+    };
+
+    private String[][] data = {
+            {"1", "Чехія", "10", "7", "2", "19", "22"},
+            {"2", "Ісландія", "10", "6", "2", "17", "20"},
+            {"3", "Туреччина", "10", "5", "2", "14", "18"},
+            {"4", "Нідерланди", "10", "4", "5", "17", "13"},
+            {"5", "Казахстан", "10", "3", "7", "7", "5"},
+            {"6", "Україна", "10", "2", "5", "6", "5"},
+            {"7", "Чехія", "10", "7", "1", "19", "22"},
+            {"8", "Чехія", "9", "7", "2", "19", "22"},
+            {"9", "Чехія", "8", "7", "2", "19", "22"},
+            {"10", "Чехія", "7", "7", "2", "19", "22"},
+    };
+
+
+    public class eHandler implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            try{
+            if (e.getSource() == searchTeam){
+                for (int i = 0; i < data.length ; i++) {
+                    if (searchField.getText().equals(String.valueOf(data[i][0]))){
+                        searchLabel.setText(String.valueOf(data[i][0]));
+                        for (int j = 1; j <data.length; j++) {
+                            searchLabel.setText(searchLabel.getText() + "---" + String.valueOf(data[i][j]));
+                        }
+                    }
+                }
+            } else if (e.getSource() == addTeam){
+                Scanner scanner = new Scanner(System.in);
+                    data = new String[][]{
+                            {String.valueOf(addField)}
+                    };
+                createTable();
+            }else if (e.getSource() == deleteTeam){
+
+            }
+            }catch (Exception e1){
+
+            }
+        }
+    }
+}
+
+
