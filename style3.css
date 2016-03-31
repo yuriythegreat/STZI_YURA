@@ -1,0 +1,11 @@
+body {
+    background-image: url(images/aaa.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+table {
+    height: 100px;
+    width: 600px;
+    color: aqua;
+    background-color: black;
+}

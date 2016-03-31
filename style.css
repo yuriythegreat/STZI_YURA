@@ -1,0 +1,56 @@
+body {
+    background-image: url(images/aaa.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #6B0C00;
+    
+    
+}
+
+.image {
+    size: 90px;
+    position: center;
+}
+
+.myButton {
+    
+    min-height: 187px;
+    min-width: 300px;
+    margin-left: 400px;
+    margin-right: 400px;
+    background-image: url(./images/ew.png);
+    background-size: contain;
+    font-weight: 900;
+    color: red;
+    font-size: 100px;
+}
+* {
+    margin: 0;
+}
+
+header {
+    background: #333333;
+    color: white;
+    min-height: 48px;
+}
+
+header * {
+    font-size: 36px;
+}
+
+header h1 {
+    font-weight: bold;
+}
+
+header * {
+    display: inline-block;
+    line-height: 48px;
+}
+
+a {
+    color: olivedrab;
+}
